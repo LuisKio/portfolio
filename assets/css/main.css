@@ -548,6 +548,30 @@ footer {
 }
 
 
+/* ----- CODE ICON  ----- */
+.code {
+    position: fixed;
+    top: 50%;
+    color: var(--secondary-color);
+    animation: rotateIcon 2s linear infinite;
+}
+
+.code-left {
+    top: 10%;
+    left: 0;
+}
+
+.code-right {
+    top: 90%;
+    right: 0;
+}
+
+.code i {
+    font-size: var(--mobile-caption-font-size);
+    opacity: .2;
+    transform: rotate(15deg);
+}
+
 @media (min-width: 768px) {
 
     /* CONTAINER */
@@ -793,5 +817,29 @@ footer {
     /* ----- CAPTION GLOBAL  ----- */
     .caption {
         font-size: var(--desktop-caption-font-size);
+    }
+
+    /* ----- CODE ICON  ----- */
+    .code-left {
+        left: 5%;
+    }
+
+    .code-right {
+        right: 5%;
+    }
+
+    .code i {
+        font-size: var(--desktop-caption-font-size);
+    }
+}
+
+
+@keyframes rotateIcon {
+    from{
+        transform: rotate(0deg);
+    }
+
+    to{
+        transform: rotate(360deg);
     }
 }
