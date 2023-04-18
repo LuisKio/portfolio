@@ -10,7 +10,7 @@
     /* DESKTOP */
     --desktop-title-font-size: 3.2rem;
     --desktop-caption-font-size: 2.2rem;
-    --desktop-subsection-font-size: 1.333rem;
+    --desktop-subsection-font-size: 1.155rem;
     --desktop-separation-between-elements: 2rem;
     --desktop-separation-between-sections: 4rem;
     --desktop-line-height: 2rem;
@@ -43,7 +43,7 @@ body {
 
 /* CONTAINER */
 .container {
-    max-width: 95%;
+    max-width: 100%;
     margin: 0 auto;
 }
 
@@ -283,6 +283,12 @@ body {
 }
 
 /* ABOUT ME */
+.about-me {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .about-me .caption::after {
     width: 11.5rem;
 }
@@ -300,25 +306,25 @@ body {
 }
 
 .skills .skills-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
+    gap: 10px;
+    justify-content: center;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
+    padding: 0;
 }
 
-.skills-list .skill:nth-last-child(1) {
-    margin-bottom: 0;
-}
 
 .skills-list .skill {
-    width: 100%;
+    padding: 15% 0;
     background-color: var(--background-skills);
     border-radius: 7%;
-    margin-bottom: var(--mobile-separation-between-elements);
-    padding: 15%;
 }
+
+
 
 .skills-list .skill:hover>* {
     color: var(--secondary-color);
@@ -341,8 +347,19 @@ body {
 }
 
 /* EXPERIENCE */
+.experiences {
+    min-width: 80%;
+}
+
 .experiences .caption::after {
     width: 10.5rem;
+}
+
+
+.experiences .element {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .experiences .experience {
@@ -366,6 +383,10 @@ body {
     font-size: var(--mobile-subsection-font-size);
 }
 
+.experience .business-experience {
+    text-align: right;
+}
+
 .business-experience p {
     color: var(--secondary-color);
 }
@@ -376,9 +397,9 @@ body {
 }
 
 .portfolios .portfolio-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
     justify-content: center;
     width: 80%;
     margin-left: auto;
@@ -388,11 +409,6 @@ body {
 .portfolio-list .portfolio {
     overflow: hidden;
     position: relative;
-    margin-bottom: var(--mobile-separation-between-elements);
-}
-
-.portfolio-list .portfolio:nth-last-child(1) {
-    margin-bottom: 0;
 }
 
 .portfolio .portfolio-img {
@@ -469,19 +485,25 @@ body {
 }
 
 /* CONTACT */
+.contacts {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .contacts .caption::after {
     width: 8.5rem;
 }
 
 .contacts .contact-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
     justify-content: center;
     align-items: center;
-    width: 80%;
     margin-left: auto;
     margin-right: auto;
+    width: 100%;
 }
 
 .contact-list .contact {
@@ -489,12 +511,7 @@ body {
     border-radius: 7%;
     width: 100%;
     text-align: center;
-    margin-bottom: var(--mobile-separation-between-elements);
     padding: 15%;
-}
-
-.contact-list .contact:nth-last-child(1) {
-    margin-bottom: 0;
 }
 
 .contact a {
@@ -526,6 +543,7 @@ footer {
 .element {
     margin-top: var(--mobile-separation-between-elements);
 }
+
 
 /* ----- SECTION GLOBAL  ----- */
 .section {
@@ -573,12 +591,27 @@ footer {
     transform: rotate(15deg);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 480px) {
 
-    /* CONTAINER */
-    .container {
-        max-width: 80%;
+    /* SKILLS */
+    .skills .skills-list {
+        grid-template-columns: repeat(2, 1fr);
     }
+
+    .portfolios .portfolio-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+
+    /* CONTACT */
+    .contacts .contact-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (min-width: 768px) {
 
     /* MAIN SECTION */
     .main-section .social-networks {
@@ -587,40 +620,30 @@ footer {
 
     /* SKILLS */
     .skills .skills-list {
-        width: 100%;
         justify-content: center;
     }
 
-    .skills-list .skill,
-    .skills-list .skill:nth-last-child(1) {
-        width: 48%;
-        margin: 1% 1%;
-        padding: 5%;
-    }
 
     /* CONTACT */
     .contacts .contact-list {
         width: 100%;
     }
-
-    .contact-list .contact,
-    .contact-list .contact:nth-last-child(1) {
-        width: 48%;
-        margin: 1% 1%;
-        padding: 5%;
-    }
 }
 
 
 @media (min-width: 992px) {
+    .container {
+        max-width: 70%;
+    }
+
 
     /* HEADER */
     .main-header {
-        padding: 1% 10%;
+        padding: 1.5% 1%;
     }
 
     .logo a {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     .logo a::after,
@@ -649,7 +672,7 @@ footer {
     }
 
     .main-nav .main-menu a {
-        font-size: 1rem;
+        font-size: .9rem;
         padding: .3rem;
     }
 
@@ -690,13 +713,8 @@ footer {
         font-size: 1.8rem;
     }
 
-    /* ABOUT ME */
-    .about-me {
-        width: 70%;
-        margin: 0 auto;
-    }
-
-    .about-me .caption::after {
+    /* ABOUT ME*/
+    .about-me .caption::after{
         width: 14.5rem;
     }
 
@@ -711,16 +729,10 @@ footer {
     }
 
     .skills .skills-list {
-        width: 70%;
+        grid-template-columns: repeat(3, 1fr);
         margin-bottom: 0;
     }
 
-    .skills-list .skill,
-    .skills-list .skill:nth-last-child(1) {
-        width: 30%;
-        margin: 2% 5%;
-        padding: 5%;
-    }
 
     .skill i {
         font-size: var(--desktop-title-font-size);
@@ -731,11 +743,7 @@ footer {
     }
 
     /* EXPERIENCE */
-    .experiences {
-        width: 70%;
-        margin: 0 auto;
-    }
-
+    /* EXPERIENCE */
     .experiences .caption::after {
         width: 13.5rem;
     }
@@ -750,19 +758,12 @@ footer {
     }
 
     /* PORTFOLIO */
+    .portfolios .portfolio-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
     .portfolios .caption::after {
-        width: 11rem;
-    }
-
-    .portfolio-list .portfolio {
-        width: 30%;
-        margin-bottom: 0;
-        margin-right: 1rem;
-    }
-
-    .portfolio-list .portfolio:nth-last-child(1) {
-        margin-bottom: 0;
-        margin-right: 0;
+        width: 11.5rem;
     }
 
     .portfolio .portfolio-img {
@@ -781,19 +782,12 @@ footer {
     }
 
     /* CONTACT */
+    .contacts .contact-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
     .contacts .caption::after {
         width: 10.5rem;
-    }
-
-    .contacts .contact-list {
-        width: 70%;
-    }
-
-    .contact-list .contact,
-    .contact-list .contact:nth-last-child(1) {
-        width: 30%;
-        margin: 2% 5%;
-        padding: 5%;
     }
 
     .contact i {
@@ -836,11 +830,11 @@ footer {
 
 
 @keyframes rotateIcon {
-    from{
+    from {
         transform: rotate(0deg);
     }
 
-    to{
+    to {
         transform: rotate(360deg);
     }
 }
